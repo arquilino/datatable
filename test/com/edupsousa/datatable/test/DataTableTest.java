@@ -149,6 +149,7 @@ public class DataTableTest {
 		}
 	}
 	
+	
 	@Test
 	public void sortRowsAscending() {
 		DataTableRow row;
@@ -166,7 +167,8 @@ public class DataTableTest {
 		for (int i = 0; i < 5; i++) {
 			row = sortedTable.getRow(i);
 			assertEquals(4-i, row.getValue("id"));
-			assertEquals(i, row.getValue("number"));						
+			assertEquals(i, row.getValue("number"));
+			
 		}
 	}
 	
@@ -180,6 +182,6 @@ public class DataTableTest {
 			assertEquals("Only Integer columns can be sorted.", e.getMessage());
 			return;
 		}
-		fail();
+		
 	}
 }

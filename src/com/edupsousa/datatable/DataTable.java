@@ -88,10 +88,27 @@ public class DataTable {
 				}
 				output += "\n";
 			}
+		}else if (format==FORMAT_HTML) {
+			output += "<table>\n<tr>";
+			for (String collumnName : columnsTypes.keySet()) {
+				output += "<td>" + collumnName + "</td>";
+			}
+			output += "</tr>\n";
+			for (int i = 0; i < this.rowsCount(); i++) {
+				output += "<tr>";
+				row = this.getRow(i);
+				for (String collumnName : columnsTypes.keySet()) {
+					output += "<td>" + row.getValue(collumnName) + "</td>";
+				}
+				output += "</tr>\n";
+			}
+			output += "</table>\n";
 		}
-		return output;
+ 		return output;
+		
+		
 	}
-	
+
 	public void insertRowAt(DataTableRow row, int index) {
 		rows.add(index, row);
 	}
@@ -101,6 +118,10 @@ public class DataTable {
 	}
 	
 	public DataTable sortAscending(String collumn) {
+		return null;
+	}
+	public DataTable sortDescending(String collumn) {
+		
 		return null;
 	}
 }
